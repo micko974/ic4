@@ -24,9 +24,10 @@ if ((isset($_POST['typeDev']))&& (isset($_POST['nom']))) {
 	$idDev= $_POST['idDev'];
 	$typeDev = $_POST['typeDev'];
 	$nom= $_POST['nom'];
+	$hostname= $_POST['hostname'];
 	
 	//Insertion des données dans la base	
-	$query="INSERT INTO device VALUES ('$idDev', '$typeDev', '$nom')";
+	$query="INSERT INTO device VALUES (NULL, '$typeDev', '$nom', '$hostname')";
 
 	//Affichage de la requête	
 	echo "requete =$query </br>";
@@ -53,7 +54,7 @@ if (isset($_POST['idAtt'])&& (isset($_POST['idDev'])) && (isset($_POST['IPAddres
 
 	
 	//Insertion des données dans la base	
-	$query="INSERT INTO attribute VALUES ('$idAtt', '$idDev','$IPAddress', '$MACAddress', '$Capacite', '$MemDispo', '$time')";
+	$query="INSERT INTO attribute VALUES (NULL, NULL,'$IPAddress', '$MACAddress', '$Capacite', '$MemDispo', '$time')";
 
 	//Affichage de la requête	
 	echo "<br>requete =$query </br>";
