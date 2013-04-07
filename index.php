@@ -16,12 +16,12 @@
 				<div id="subheader">
 					<img src="images/logo.jpg" />
 					<p><?php ; ?></p>
-					<p class="right-side">Version: v<?php echo "0.0.2 Bêta" ?></p>
+					<p class="right-side">Version: v<?php echo "0.0.4 final" ?></p>
 				</div>
                 <div class="menu">
                 <ul>
                     <li><a href="">Moniteurs</a></li>
-                    <li><a href="">Contacts</a></li>
+                    <li><a href="contact.php">Contacts</a></li>
                 </ul>
                 </div>
                 <?php  include('tableau.php');?>
@@ -38,13 +38,10 @@
 							function heure()
 							{
 							dte = new Date();
-							/*recupère chaque partie de l'heure*/
 							h = dte.getHours();
 							m = dte.getMinutes();
 							s = dte.getSeconds();
 
-							// Les conditions ne servent que pour l'affichage.
-							  // Si le nombre de heure/minute/seconde est inférieur à 10, alors on rajoute un 0 devant..
 							if(h<10)
 							{ h = '0'+h; }
 							if(m<10)
@@ -52,14 +49,19 @@
 							if(s<10)
 							{ s = '0'+s; }
 
-							date = ''+h+':'+m+':'+s+''; //format
-							document.temps.time.value = date; //?
+							date = ''+h+':'+m+':'+s+'';
+							document.temps.time.value = date;
 							}
-							window.setInterval("heure()",1000); /*lance la fonction heure() tous les 1000 ms*/
+							window.setInterval("heure()",1000);
 						</script>
 							<form name="temps"><input type="text" name="time" size=10></li>
                 </div>
             </div>
+		
+		<div class="rightb-block">
+		<img src="images/iut.jpg" />
+		<img src="images/logo_IUT.jpg" />
 		</div>
+		<div>
 	</body>
 </html>

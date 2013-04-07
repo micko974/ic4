@@ -40,6 +40,14 @@ h2.waiting { color: #7e7e7e; }
 .right-block p.center { text-align: center; }
 .right-block input[type=button] { border: 1px solid #b9b9b9; color: #2fa426; margin-bottom: 5px; width: 150px; }
 
+.rightb-block { float: right; margin-bottom: 5px; padding: 5px; text-align: center; width: 200px; }
+.rightb-block div { border: 1px solid #f3f3f3; float: right; margin-bottom: 5px; padding: 5px; }
+.rightb-block img { border: 1px solid #fff; height: 75px; margin-right: 15px; width: 180px; }
+.rightb-block p { font-family: Verdana, Arial, sans-serif; margin: 2px; text-align: justify; }
+
+
+
+
 p.version-notice-bad { font-size:12px; color: #ff0000; text-align: center; }
 
 .section { margin: 10px; }

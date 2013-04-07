@@ -4,14 +4,13 @@
 <head></head>
 <?php
 
-// La requete (exemple) : toutes les "CHOSE" commençant par un "b", classées par ordre alphabétique.
 $query = "SELECT time FROM attribute ORDER BY idAtt DESC LIMIT 1";
 $result = mysql_query($query);
 
 ?>
 
 <?php
-	while ($val2 = mysql_fetch_array($result)) 
+	if ($val2 = mysql_fetch_array($result)) 
 	{
 		if ($j%$NbrCol == 1) {
 			$NbrLigne++;
@@ -23,7 +22,6 @@ $result = mysql_query($query);
 	
 <?php
 			echo '<i>'.$val2['time'].'</i>';
-			// -------------------------
 ?>			
 <?php		if ($j%$NbrCol == 0) {
 			$fintr = 1;
@@ -31,16 +29,18 @@ $result = mysql_query($query);
 
 <?php		}
 		$j++;
-	} // fin while
-	// fermeture derniere balise /tr
 	if ($fintr!=1) {
 ?>		</tr>
 <?php	} ?>
 	</tbody>
 	</table>
+<?php
+	}
+	else {echo "Pas de connexion";
+	}
+?>
 
-
-<?php mysql_close(); // deconnexion de la base ?>
+<?php mysql_close(); ?>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 <?php
 
 //Connection à la base de données	
-$connection = mysql_connect('localhost','root', '') or die('Erreur de connexion '.mysql_error());
+$connection = mysql_connect('localhost','', '') or die('Erreur de connexion '.mysql_error());
 
 $db=mysql_select_db('ic4',$connection) or die('Erreur de selection '.mysql_error());
 
@@ -20,14 +20,14 @@ mysql_query("SET NAMES 'utf8'");
 $result="SELECT * FROM device";
 
 //Table device
-if (isset($_POST['idDev']) && (isset($_POST['typeDev']))&& (isset($_POST['nom'])) &&(isset($_POST['hostname']))) {
+if ((isset($_POST['typeDev']))&& (isset($_POST['nom']))) {
 	$idDev= $_POST['idDev'];
 	$typeDev = $_POST['typeDev'];
 	$nom= $_POST['nom'];
-	$hostname=$_POST['hostname'];
+	$hostname= $_POST['hostname'];
 	
 	//Insertion des données dans la base	
-	$query="INSERT INTO device VALUES ('$idDev', '$typeDev', '$nom', '$hostname')";
+	$query="INSERT INTO device VALUES (NULL, '$typeDev', '$nom', '$hostname')";
 
 	//Affichage de la requête	
 	echo "requete =$query </br>";
@@ -54,7 +54,7 @@ if (isset($_POST['idAtt'])&& (isset($_POST['idDev'])) && (isset($_POST['IPAddres
 
 	
 	//Insertion des données dans la base	
-	$query="INSERT INTO attribute VALUES ('$idAtt', '$idDev','$IPAddress', '$MACAddress', '$Capacite', '$MemDispo', '$time')";
+	$query="INSERT INTO attribute VALUES (NULL, NULL,'$IPAddress', '$MACAddress', '$Capacite', '$MemDispo', '$time')";
 
 	//Affichage de la requête	
 	echo "<br>requete =$query </br>";

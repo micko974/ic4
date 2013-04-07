@@ -10,20 +10,10 @@
 <h1></h1>
 <h1>Affichage de la base de données</h1>
 <?php
-// $NbrCol : le nombre de colonnes
-// $NbrLigne : calcul automatique a la FIN
-// --------------------------------
-// (exemple)
 $NbrCol = 1;
-// La requete (exemple) : toutes les "CHOSE" commençant par un "b", classées par ordre alphabétique.
 $query = "SELECT * FROM device, attribute GROUP BY IPAddress";
 $result = mysql_query($query);
-
-// --------------------------------
-// nombre de cellules a remplir
 $NbreData = mysql_num_rows($result);
-// --------------------------------
-// affichage
 $NbrLigne = 0;
 if ($NbreData != 0) {
 	$j = 1;
@@ -56,37 +46,31 @@ if ($NbreData != 0) {
 ?>
 
 			<td>
-<?php			// -------------------------
-			// DONNEES A AFFICHER dans la cellule
+<?php			
 			echo $val['hostname'].': ';
-			?></td><td><?php //echo '<br/>';
+			?></td><td><?php 
 			echo '<i>'.$val['MACAddress'].'</i>';
-			// -------------------------
+	
 ?>			</td>
 			<td><?php
 			echo '<i>'.$val['IPAddress'].'</i>';
-			// -------------------------
+		
 ?>			</td>
 			<td><?php
 			echo '<i>'.$val['typeDev'].'</i> :: '
 			.$val['nom'].'</i>';
-			// -------------------------
+		
 ?>			</td>
 			<td><?php
 			echo '<i>'.$val['MemDispo'].'</i>/'
 			.$val['Capacite'].'</i>';
-			// -------------------------
+		
 ?>			</td><td><?php
 			echo '<i>'.$val['time'].'</i>';
-			// ------------------------
+	
 ?>			</td><td><?php
-			include('last_online.php');
-			$time = time();
-			if ($time != $val['time']){
-			echo '<i><b>C</b></i>';
-			}else{
+			echo '<i><b>C</b> or </i>';
 			echo '<i>D</i>';
-			}
 ?></td>
 <?php		if ($j%$NbrCol == 0) {
 			$fintr = 1;
@@ -94,14 +78,14 @@ if ($NbreData != 0) {
 
 <?php		}
 		$j++;
-	} // fin while
-	// fermeture derniere balise /tr
+	} 
 	if ($fintr!=1) {
 ?>		</tr>
 <?php	} ?>
 	</tbody>
 	</table>
-	<input type="button" value="Réactualiser" onclick="index.php" :> 
+	<input type="button" value="Actualiser" OnClick="window.location.href='index.php'">
+	<a href="http://www.google.com" onclick="window.open('http://www.google.com', 'exemple', 'height=600, width=800, top=90, left=350, toolbar=no, menubar=no, location=yes, resizable=yes, scrollbars=yes, status=no'); return false;">+infos</a>
 <?php
 } else { ?>
 	pas de données à afficher
@@ -109,8 +93,8 @@ if ($NbreData != 0) {
 }
 ?>
 
-<?php// mysql_close(); // deconnexion de la base ?>
+<?php ?>
 
 </body>
-<header align= "center"> Copyright © Mazeau Fabiola & Mourouvin Mickaël</header>
+<header align= "center"> Copyright © Mazeau Fabiola & Mourouvin Mickaël 						IUT Saint-Pierre  </header>
 </html>
